@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Arena</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Connect JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <a href="#home" class="brand">
+            <span class="brand-logo">TA</span>
+            <span>Task Arena</span>
+        </a>
+
+        <nav>
+            <a href="#home">Overview</a>
+            <a href="#tasks">Daily Tasks</a>
+            <a href="#leaderboard">Leaderboard</a>
+        </nav>
+
+        <span class="online-status">PERSONAL MODE</span>
+
+    </header>
+
+
+    <main class="dashboard" id="home">
+
+        <!-- WELCOME WINDOW -->
+        <section class="welcome-banner">
+
+            <div>
+                <p class="eyebrow">YOUR SPACE. YOUR PACE.</p>
+
+                <h1>Make today <span>count.</span></h1>
+
+                <p>
+                    Complete your missions, earn points
+                    and build better habits.
+                </p>
+
+                <a href="#tasks" class="primary-link">
+                    View Today's Tasks →
+                </a>
+            </div>
+
+            <div class="date-box">
+                <span>TODAY</span>
+                <strong id="today-date">Loading...</strong>
+            </div>
+
+        </section>
+
+
+        <!-- PLAYER PROFILE AND PROGRESS -->
+        <section class="overview-grid">
+
+
+            <!-- PLAYER PROFILE -->
+            <article class="panel" id="profile">
+
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">PLAYER PROFILE</p>
+                        <h2>Your Profile</h2>
+                    </div>
+
+                    <span class="panel-icon">♙</span>
+                </div>
+
+
+                <div class="profile-identity">
+
+                    <div class="avatar" id="avatar-initials">
+                        G
+                    </div>
+
+                    <div>
+                        <strong id="display-name">Guest</strong>
+                        <p>Task Arena Player</p>
+                    </div>
+
+                    <span class="level" id="level-pill">
+                        LEVEL 1
+                    </span>
+
+                </div>
+
+
+                <!-- CHANGE DISPLAY NAME -->
+                <form id="profile-form">
+
+                    <label for="player-name">
+                        Player Name
+                    </label>
+
+                    <div class="input-row">
+
+                        <input
+                            type="text"
+                            id="player-name"
+                            placeholder="Enter your name"
+                            minlength="2"
+                            maxlength="18"
+                            required
+                        >
+
+                        <button type="submit" class="button">
+                            Save
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <p id="profile-message" class="message"></p>
+
+
+                <div class="points-box">
+
+                    <span>Total Points</span>
+
+                    <strong>
+                        <span id="points">0</span>
+                        <small>PTS</small>
+                    </strong>
+
+                </div>
+
+
+                <div class="rank-row">
+                    <span>Your Demo Rank</span>
+                    <strong id="player-rank">-</strong>
+                </div>
+
+            </article>
+
+
+            <!-- DAILY PROGRESS -->
+            <article class="panel" id="progress">
+
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">YOUR PERFORMANCE</p>
+                        <h2>Daily Progress</h2>
+                    </div>
+
+                    <span class="panel-icon">↗</span>
+                </div>
+
+
+                <div class="progress-content">
+
+                    <div class="progress-ring" id="progress-ring">
+
+                        <div class="progress-inner">
+
+                            <strong id="progress-percent">0%</strong>
+
+                            <span>COMPLETED</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-details">
+
+                        <strong>
+                            <span id="completed-count">0</span>
+                            /
+                            <span id="total-count">0</span>
+                        </strong>
+
+                        <p>Tasks completed today</p>
+
+                        <div class="progress-track">
+                            <div id="progress-fill"></div>
+                        </div>
+
+                        <span id="progress-message">
+                            Your first victory is waiting.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="today-points">
+
+                    <span>Points earned today</span>
+
+                    <strong id="today-points">0 PTS</strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- DAILY TASK WINDOW -->
+        <section class="content-grid">
+
+
+            <section class="panel tasks-panel" id="tasks">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <p class="eyebrow">YOUR DAILY MISSIONS</p>
+                        <h2>Today's Tasks</h2>
+
+                        <p class="subtitle">
+                            Complete your assigned missions to earn points.
+                        </p>
+                    </div>
+
+                    <span class="mission-count" id="task-count-badge">
+                        0 MISSIONS
+                    </span>
+
+                </div>
+
+
+                <!-- JavaScript displays developer-defined tasks here -->
+                <div id="task-list" class="task-list"></div>
+
+
+                <p class="task-note">
+                    Tasks are managed by the developer.
+                    Players cannot create or edit missions.
+                </p>
+
+            </section>
+
+
+            <!-- LEADERBOARD WINDOW -->
+            <aside class="panel leaderboard-panel" id="leaderboard">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <p class="eyebrow">FRIENDLY COMPETITION</p>
+                        <h2>Leaderboard</h2>
+                    </div>
+
+                    <span class="panel-icon">♛</span>
+
+                </div>
+
+
+                <p class="subtitle">
+                    Compare your score with demonstration players.
+                </p>
+
+
+                <ol id="leaderboard-list"
+                    class="leaderboard-list">
+                </ol>
+
+
+                <p class="task-note">
+                    Sample players only. Not an online leaderboard.
+                </p>
+
+            </aside>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                Task Arena © <span id="current-year">2026</span>
+            </p>
+
+            <p>Build your progress, one mission at a time.</p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- NOTIFICATION -->
+    <div id="toast" class="toast" role="status"></div>
+
+</body>
+</html>
